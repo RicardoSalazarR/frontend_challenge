@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
 import Navbar from './NavBar'
+import logo from  '../assets/logo.png'
 
 const SignUp = () => {
     const [showPass, setShowPass] = useState(false)
@@ -54,7 +55,7 @@ const SignUp = () => {
         <div>
             <Navbar/>
             <div className='signup-container'>
-            <img src="" alt="logo" className='green' />
+            <img src={logo} alt="logo" className='green logo' />
             <p className='green'>Hola, por favor ingresa tus datos</p>
             <form action="" className='signup-form' onSubmit={handleSubmit(submit)}>
                 <input type="text" {...register('email')} placeholder='Usuario ó email' className='form-input' />

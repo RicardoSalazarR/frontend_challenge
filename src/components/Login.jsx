@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { changeName } from '../store/slices/username.slice'
 import { useForm } from 'react-hook-form'
 import Navbar from './NavBar'
+import logo from '../assets/logo.png'
 
 const Login = () => {
     const { handleSubmit } = useForm()
@@ -31,7 +32,7 @@ const Login = () => {
         <div>
             <Navbar />
             <div className='login-container'>
-                <img src="" alt="logo" className='green' />
+                <img src={logo} alt="logo" className='green logo' />
                 <p className='green'>Hola, por favor ingresa tus datos</p>
                 <form action="" className='login-form' onSubmit={handleSubmit(enterName)}>
                     <input
