@@ -4,7 +4,6 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import ProtectedRoutes from './components/ProtectedRoutes';
 import Body from './components/Body';
-import CharacterCard from './components/CharacterCard'
 import { HashRouter, Route, Routes } from 'react-router-dom'
 
 function App() {

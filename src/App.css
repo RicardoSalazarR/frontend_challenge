@@ -250,12 +250,12 @@ a {
   gap: 2rem;
   width: 90%;
   margin: auto;
+  margin-bottom: 2rem;
 }
 
 .character-card {
   background: linear-gradient(160deg, rgb(42, 90, 156), rgb(91, 42, 156), rgb(133, 52, 195), rgb(124, 50, 189)); 
   width: 100%;
-  border: gray solid 1px;
   border-radius: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -300,12 +300,13 @@ a {
   border: solid 1px;
   border-radius: 2rem;
   padding: 2rem;
-  background-color: black;
+  background: linear-gradient(160deg, rgb(42, 156, 63), rgb(42, 116, 156), rgb(78, 52, 195), rgb(69, 50, 189));
+  gap: 1rem;
 }
 
-
 .charcterCard-image{
-  width: 60%;
+  border-radius: 2rem;
+  width: 65%;
   margin-bottom: 10px;
 }
 .card-content{
@@ -318,4 +319,11 @@ a {
   top: 10px;
   right: 30px;
   margin: auto;
+}
+.closeCard-icon:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px){
+
 }

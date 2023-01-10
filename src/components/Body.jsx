@@ -3,18 +3,14 @@ import axios from 'axios'
 import Sidebar from './Sidebar'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import CharacterCard from './CharacterCard';
-import { changeVisibilitiy } from '../store/slices/showCard.slice';
-import { changeUrl } from '../store/slices/characterUrl.slice';
 
 const Body = () => {
-    const show2 = useSelector(state => state.showCard)
-
+    const [isVisible,setIsVisible] = useState(false)
     const userName = useSelector(state => state.username)
     const [characters, setCharacters] = useState([])
+    const [characterInfo, setCharacter] = useState({})
     useEffect(() => {
         const array2 = []
         for (let index = 0; index < 8; index++) {
@@ -24,19 +20,13 @@ const Body = () => {
         axios.get(`https://rickandmortyapi.com/api/character/${array2}`)
             .then(res => setCharacters(res.data))
     }, [])
-    const dispatch = useDispatch()
-
-    const newUrl = (url) => {
-
-        dispatch(changeUrl(url))
+    const changeVisibility = ()=>{
+        setIsVisible(!isVisible)
     }
     return (
         <div className='Home'>
-            <div className={show2 ? '' : 'hide'}>
-                <CharacterCard />
-            </div>
             <Sidebar />
-            <div className='body-container'>
+            <div className='body-container' onClick={e=>{isVisible&&changeVisibility()}}>
                 <div className='bar-container'>
                     <box-icon name='menu-alt-left'></box-icon>
                     <div>
@@ -51,21 +41,17 @@ const Body = () => {
                 <div className='characters-container'>
                     {
                         characters.map(character => (
-                            // <Link to={`/character/${character.id}`} className='character-card' key={character.id}>
-                            //     <img src={character.image} alt="" /> 
-                            //     <h3>{character.name}</h3>
-                            // </Link> 
-                            <div
-                                className={`character-card`}
-                                key={character.id}
+                            <div className={`character-card`} key={character.id}
                                 onClick={() => {
-                                    newUrl(character.url)
-                                    dispatch(changeVisibilitiy(true))
+                                    changeVisibility()
 
-                                    // setCurrentCharacter({ dead: 21, imageURL: '', id: character.id })
-                                }}
-                            >
-
+                                    setCharacter({
+                                        image: character.image,
+                                        name: character.name,
+                                        status: character.status,
+                                        species: character.species,
+                                        origin: character.origin?.name
+                                    })}}>
                                 <img src={character.image} alt="" />
                                 <h3>{character.name}</h3>
                             </div>
@@ -73,7 +59,9 @@ const Body = () => {
                     }
                 </div>
             </div>
-
+            <div className={isVisible ? '' : 'hide'}>
+                <CharacterCard characterInfo={characterInfo} changeVisibility={changeVisibility}/>
+            </div>
         </div>
     );
 };

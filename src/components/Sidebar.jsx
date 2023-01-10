@@ -5,10 +5,10 @@ const Sidebar = () => {
     <div className='sidebar-container'>
       <div className='menu-container'>
         <img src="" alt="logo" />
-        <a href="">HOME</a>
-        <a href="">EXPLORE</a>
-        <a href="">BLOG</a>
-        <a href="">CONTACT</a>
+        <a>HOME</a>
+        <a>EXPLORE</a>
+        <a>BLOG</a>
+        <a>CONTACT</a>
       </div>
       <div className="icons-container">
         <box-icon type='logo' name='instagram' color='white'></box-icon>
