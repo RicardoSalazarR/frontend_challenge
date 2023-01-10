@@ -11,7 +11,7 @@ import { changeVisibilitiy } from '../store/slices/showCard.slice';
 import { changeUrl } from '../store/slices/characterUrl.slice';
 
 const Body = () => {
-    const show2 = useSelector(state=>state.showCard)
+    const show2 = useSelector(state => state.showCard)
 
     const userName = useSelector(state => state.username)
     const [characters, setCharacters] = useState([])
@@ -27,11 +27,14 @@ const Body = () => {
     const dispatch = useDispatch()
 
     const newUrl = (url) => {
-        
-            dispatch(changeUrl(url))
+
+        dispatch(changeUrl(url))
     }
     return (
         <div className='Home'>
+            <div className={show2 ? '' : 'hide'}>
+                <CharacterCard />
+            </div>
             <Sidebar />
             <div className='body-container'>
                 <div className='bar-container'>
@@ -56,15 +59,13 @@ const Body = () => {
                                 className={`character-card`}
                                 key={character.id}
                                 onClick={() => {
-                                    
-                                        newUrl(character.url)
-                                        
+                                    newUrl(character.url)
                                     dispatch(changeVisibilitiy(true))
+
+                                    // setCurrentCharacter({ dead: 21, imageURL: '', id: character.id })
                                 }}
                             >
-                                <div className={show2 ? '' : 'hide'}>
-                                    <CharacterCard />
-                                </div>
+
                                 <img src={character.image} alt="" />
                                 <h3>{character.name}</h3>
                             </div>

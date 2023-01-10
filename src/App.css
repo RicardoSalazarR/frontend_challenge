@@ -162,18 +162,24 @@ hr {
 .Home {
   display: flex;
   color: white;
+  
 }
 
 img {
   max-width: 100%;
   max-height: 100%;
 }
+/* 
+background: linear-gradient(160deg, rgb(28, 145, 187), rgb(28, 187, 147), rgb(28, 187, 166), rgb(28, 145, 187));
+background: linear-gradient(160deg, rgb(28, 187, 147), rgb(28, 187, 155), rgb(28, 179, 187), rgb(34, 155, 207)); 
+*/
 
 .sidebar-container {
   width: 20%;
   height: 100vh;
+  background: linear-gradient(99deg, rgb(105, 42, 156), rgb(118, 42, 156), rgb(143, 52, 195), rgb(166, 50, 189)); 
 
-  border: solid 1px;
+  border-right: solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -247,6 +253,7 @@ a {
 }
 
 .character-card {
+  background: linear-gradient(160deg, rgb(42, 90, 156), rgb(91, 42, 156), rgb(133, 52, 195), rgb(124, 50, 189)); 
   width: 100%;
   border: gray solid 1px;
   border-radius: 2rem;
@@ -256,8 +263,13 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
   align-items: center;
   gap: 12px;
+}
+.character-card:hover{
+  cursor: pointer;
+  background: linear-gradient(160deg, rgb(42, 148, 156), rgb(42, 147, 156), rgb(52, 124, 195), rgb(69, 50, 189)); 
 }
 
 .character-card>img {
@@ -290,9 +302,7 @@ a {
   padding: 2rem;
   background-color: black;
 }
-.character-card:hover{
-  cursor: pointer;
-}
+
 
 .charcterCard-image{
   width: 60%;

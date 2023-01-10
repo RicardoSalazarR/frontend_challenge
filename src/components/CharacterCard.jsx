@@ -17,7 +17,7 @@ const CharacterCard = () => {
                 .then(res => setCharacter(res.data))
         }
 
-    }, [character])
+    }, [character,url])
     return (
         <div className='character-container'>
             <div
@@ -25,7 +25,8 @@ const CharacterCard = () => {
                 onClick={e => setTimeout(() => dispatch(changeVisibilitiy(false)), 100)}>
                 <box-icon name='x' color='white'></box-icon>
             </div>
-            <img src={character.image} alt="" className='charcterCard-image' />
+            {!character.image ? <div /> : <img src={character.image} alt="" className='charcterCard-image' />}
+            
             <p className='card-content'><b>Character Name:</b>{character.name}</p>
             <p className='card-content'><b>Status:</b>{character.status}</p>
             <p className='card-content'><b>Species:</b>{character.species}</p>
